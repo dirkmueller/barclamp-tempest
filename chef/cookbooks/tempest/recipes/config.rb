@@ -132,7 +132,7 @@ machine_id_file = node[:tempest][:tempest_path] + '/machine.id'
 heat_machine_id_file = node[:tempest][:tempest_path] + '/heat_machine.id'
 
 glance_node = search(:node, "roles:glance-server").first
-insecure = (keystone_settings["insecure"] || glance_node[:glance][:ssl][:insecure]) ? "--insecure" : ""
+insecure = "--insecure"
 
 bash "upload tempest test image" do
   code <<-EOH
